@@ -2,16 +2,16 @@
 {
     public class Specification<ItemToFilter, ReturnType>
     {
-        private readonly PropertyAccessor<ItemToFilter, ReturnType> pp;
+        private readonly PropertyAccessor<ItemToFilter, ReturnType> accessor;
 
-        public Specification(PropertyAccessor<ItemToFilter, ReturnType> pp)
+        public Specification(PropertyAccessor<ItemToFilter, ReturnType> accessor)
         {
-            this.pp = pp;
+            this.accessor = accessor;
         }
 
         public Criteria<ItemToFilter> equal_to(ReturnType studio)
         {
-            return new ConditionalCriteria<ItemToFilter>(m => pp(m).Equals(studio));
+            return new ConditionalCriteria<ItemToFilter>(m => accessor(m).Equals(studio));
         }
     }
 }
