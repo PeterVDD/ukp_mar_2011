@@ -13,5 +13,11 @@ namespace nothinbutdotnetprep.utility.filtering
         {
             return new OrCriteria<ItemToMatch>(left, right);
         }
+
+        public static Criteria<ItemToMatch> not<ItemToMatch>(this Criteria<ItemToMatch> toNegate)
+        {
+            return new NotCriteria<ItemToMatch>(toNegate);
+        }
+
     }
 }
