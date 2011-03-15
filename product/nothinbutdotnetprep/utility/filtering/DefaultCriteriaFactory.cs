@@ -1,4 +1,6 @@
-﻿namespace nothinbutdotnetprep.utility.filtering
+﻿using System;
+
+namespace nothinbutdotnetprep.utility.filtering
 {
     public class DefaultCriteriaFactory<ItemToFilter, ReturnType> : CriteriaFactory<ItemToFilter, ReturnType>
     {
@@ -28,6 +30,11 @@
         {
             return new PropertyCriteria<ItemToFilter, ReturnType>(property_accessor,
                                                                   property_criteria);
+        }
+
+        public NotCriteriaFactory<ItemToFilter, ReturnType> not
+        {
+            get { return new NotCriteriaFactory<ItemToFilter, ReturnType>(this); }
         }
     }
 }
